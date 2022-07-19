@@ -3,7 +3,7 @@ from pytube import YouTube
 
 
 
-print("WELCOME! THIS IS A YOUTUBE VIDEO DOWNLOADER")
+print("\nWELCOME! THIS IS A YOUTUBE VIDEO DOWNLOADER")
 
 try:
     # Request of number of youtube videos to be downloader
@@ -16,19 +16,21 @@ try:
         links.append(video_link)
 
     print(links)
-
+    print("\n---------------------------------------------------------------------")
     for i in links:
-        print("\n---------------------------------------------------------------------")
+        print("Video", links.index(i)+1)
         yt = YouTube(i)
-        #Title of video
-        print("Title: ",yt.title)
-        #Number of views of video
-        print("Number of views: ",yt.views)
-        #Length of the video
-        print("Length of video: ",yt.length,"seconds")
-        #Rating
-        print("Ratings: ",yt.rating)
-        print("---------------------------------------------------------------------")
+
+        # Video Description  
+        print("Title: ",yt.title) #Title of video       
+        print("Length of video: ",yt.length,"seconds") #Length of the video        
+        print("Ratings: ",yt.rating) #Rating
+        
+        print("Downloading...", links.index(i)+1, "/", len(links))
+        
+        
+        print(links.index(i)+1, "of", len(links), "downloaded")
+        print("---------------------------------------------------------------------\n")
 
 except:
     print("You didn't input a legal integer.")
